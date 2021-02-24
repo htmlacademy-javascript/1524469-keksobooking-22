@@ -1,3 +1,4 @@
+const objectsAmount = 10;
 /**
  * Возвращает случайное целое число из заданного диапазона
  * @param {number} min - минимальное значение диапазона
@@ -18,6 +19,10 @@ const getRandomFloat = (min, max) => {
   else { alert('Введены некорректные значения') }
 }
 
+const createRandomArray = (array) => {
+
+}
+
 const TYPE = ['place', 'flat', 'house', 'bungalow'];
 const TIME = ['12:00', '13:00', '14:00'];
 const FEATURES = ['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'conditioner'];
@@ -25,7 +30,7 @@ const PHOTOS = ['http://o0.github.io/assets/images/tokyo/hotel1.jpg', 'http://o0
 
 const createAuthor = () => {
   return {
-    avatar: 'img/avatars/user' + 0 + getRandom(1, 8) + '.png',
+    avatar: 'img/avatars/user0' + getRandom(1, 8) + '.png',
   };
 };
 
@@ -39,9 +44,9 @@ const createOffer = (location) => {
     guests: getRandom(1, 20),
     checkin: TIME[getRandom(0, TIME.length - 1)],
     checkout: TIME[getRandom(0, TIME.length - 1)],
-    features: FEATURES[getRandom(0, FEATURES.length - 1)],
+    features: createRandomArray(FEATURES),
     description: 'Уютное жилье с прекрасным расположением',
-    photos: PHOTOS[getRandom(0, PHOTOS.length - 1)],
+    photos: createRandomArray(PHOTOS),
   };
 };
 
@@ -57,8 +62,8 @@ const createAdvertisement = () => {
   return {
     author: createAuthor(),
     offer: createOffer(location),
-    location: createLocation(),
+    location: location,
   }
 }
 
-const advertisementsList = new Array(10).fill(null).map(() => createAdvertisement());
+const advertisementsList = new Array(objectsAmount).fill(null).map(() => createAdvertisement());
