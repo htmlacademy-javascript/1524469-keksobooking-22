@@ -34,4 +34,4 @@ const createRandomArray = (array) => {
   const maxLength = getRandomInt(1, array.length);
   return array.slice(maxLength);
 }
-export {getRandomInt, getRandomFloat, createRandomArray}
+export { getRandomInt, getRandomFloat, createRandomArray }

@@ -1,4 +1,6 @@
-import {getRandomInt, getRandomFloat, createRandomArray} from './util.js';
+import { getRandomInt, getRandomFloat, createRandomArray } from './util.js';
+
+const OBJECTS_AMOUNT = 10;
 const TYPE = ['place', 'flat', 'house', 'bungalow'];
 const TIME = ['12:00', '13:00', '14:00'];
 const FEATURES = ['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'conditioner'];
@@ -7,6 +9,13 @@ const PHOTOS = [
   'http://o0.github.io/assets/images/tokyo/hotel2.jpg',
   'http://o0.github.io/assets/images/tokyo/hotel3.jpg',
 ];
+
+const OFFER_TYPE = {
+  flat: 'Квартира',
+  bungalow: 'Бунгало',
+  house: 'Дом',
+  palace: 'Дворец',
+}
 
 const createAuthor = () => {
   return {
@@ -18,7 +27,7 @@ const createOffer = (location) => {
   return {
     title: 'Жилье для вас',
     address: location.x + ', ' + location.y,
-    price: getRandomInt(1, 100000),
+    price: getRandomInt(1, 1000000),
     type: TYPE[getRandomInt(0, TYPE.length - 1)],
     rooms: getRandomInt(1, 10),
     guests: getRandomInt(1, 20),
@@ -45,4 +54,6 @@ const createAdvertisement = () => {
     location: location,
   }
 }
-export {createAdvertisement}
+const advertisementsList = new Array(OBJECTS_AMOUNT).fill(null).map(() => createAdvertisement());
+
+export { OFFER_TYPE, advertisementsList }
