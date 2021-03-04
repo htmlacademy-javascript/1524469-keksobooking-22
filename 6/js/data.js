@@ -1,0 +1,59 @@
+import { getRandomInt, getRandomFloat, createRandomArray } from './util.js';
+
+const OBJECTS_AMOUNT = 10;
+const TYPE = ['place', 'flat', 'house', 'bungalow'];
+const TIME = ['12:00', '13:00', '14:00'];
+const FEATURES = ['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'conditioner'];
+const PHOTOS = [
+  'http://o0.github.io/assets/images/tokyo/hotel1.jpg',
+  'http://o0.github.io/assets/images/tokyo/hotel2.jpg',
+  'http://o0.github.io/assets/images/tokyo/hotel3.jpg',
+];
+
+const OFFER_TYPE = {
+  flat: 'Квартира',
+  bungalow: 'Бунгало',
+  house: 'Дом',
+  palace: 'Дворец',
+}
+
+const createAuthor = () => {
+  return {
+    avatar: 'img/avatars/user0' + getRandomInt(1, 8) + '.png',
+  };
+};
+
+const createOffer = (location) => {
+  return {
+    title: 'Жилье для вас',
+    address: location.x + ', ' + location.y,
+    price: getRandomInt(1, 1000000),
+    type: TYPE[getRandomInt(0, TYPE.length - 1)],
+    rooms: getRandomInt(1, 10),
+    guests: getRandomInt(1, 20),
+    checkin: TIME[getRandomInt(0, TIME.length - 1)],
+    checkout: TIME[getRandomInt(0, TIME.length - 1)],
+    features: createRandomArray(FEATURES),
+    description: 'Уютное жилье с прекрасным расположением',
+    photos: createRandomArray(PHOTOS),
+  };
+};
+
+const createLocation = () => {
+  return {
+    x: getRandomFloat(35.65000, 35.70000, 5),
+    y: getRandomFloat(139.70000, 139.80000, 5),
+  };
+};
+
+const createAdvertisement = () => {
+  const location = createLocation();
+  return {
+    author: createAuthor(),
+    offer: createOffer(location),
+    location: location,
+  }
+}
+const advertisementsList = new Array(OBJECTS_AMOUNT).fill(null).map(() => createAdvertisement());
+
+export { OFFER_TYPE, advertisementsList }
