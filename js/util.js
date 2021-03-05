@@ -31,7 +31,7 @@ const getRandomFloat = (min, max, decimal) => {
  * @return {Array} — случайный массив
  */
 const createRandomArray = (array) => {
-  const maxLength = getRandomInt(1, array.length);
+  const maxLength = getRandomInt(0, array.length - 1);
   return array.slice(maxLength);
 }
 export { getRandomInt, getRandomFloat, createRandomArray }

@@ -23,7 +23,7 @@ const createCard = (advertisementsListItem) => {
 
   newCard.querySelector('.popup__description').textContent = advertisementsListItem.offer.description;
 
-  const popupPhotos = cardTemplate.querySelector('.popup__photos');
+  const popupPhotos = newCard.querySelector('.popup__photos');
   popupPhotos.innerHTML = '';
   const photosArray = advertisementsListItem.offer.photos;
   for (let i = 0; i <= photosArray.length - 1; i++) {
@@ -42,4 +42,4 @@ const createCard = (advertisementsListItem) => {
 };
 
 const mapCanvas = document.querySelector('#map-canvas');
-mapCanvas.appendChild(createCard(advertisementsList[0]));
+mapCanvas.appendChild(createCard(advertisementsList(1)));
