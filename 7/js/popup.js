@@ -16,8 +16,8 @@ const renderCard = ({author, offer}) => {
   featuresList.innerHTML = '';
   const features = offer.features;
 
-  features.forEach((i) => {
-    const add = features[i];
+  features.forEach((feature) => {
+    const add = feature;
     const newElement = document.createElement('li');
     newElement.classList.add('popup__feature', 'popup__feature--' + add);
     featuresList.append(newElement);
@@ -29,20 +29,11 @@ const renderCard = ({author, offer}) => {
   popupPhotos.innerHTML = '';
   const photos = offer.photos;
 
-  // for (let i = 0; i < photos.length; i++) {
-  //   const newPhoto = document.createElement('img');
-  //   newPhoto.className = 'popup__photo';
-  //   newPhoto.src = photos[i];
-  //   newPhoto.width = 45;
-  //   newPhoto.height = 40;
-  //   newPhoto.alt = 'Фотография жилья';
-  //   popupPhotos.appendChild(newPhoto);
-  // }
 
-  photos.forEach((i) => {
+  photos.forEach((photo) => {
     const newPhoto = document.createElement('img');
     newPhoto.className = 'popup__photo';
-    newPhoto.src = photos[i];
+    newPhoto.src = photo;
     newPhoto.width = 45;
     newPhoto.height = 40;
     newPhoto.alt = 'Фотография жилья';
