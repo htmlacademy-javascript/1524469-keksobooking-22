@@ -53,6 +53,6 @@ const createAdvertisement = () => {
     location: location,
   }
 }
-const advertisementsList = (count) => new Array(count).fill(null).map(() => createAdvertisement());
+const advertisements = (count) => new Array(count).fill(null).map(() => createAdvertisement());
 
-export { OFFER_TYPE, advertisementsList }
+export { OFFER_TYPE, advertisements }
