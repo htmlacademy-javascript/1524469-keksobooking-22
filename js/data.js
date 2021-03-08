@@ -1,6 +1,5 @@
 import { getRandomInt, getRandomFloat, createRandomArray } from './util.js';
 
-const OBJECTS_AMOUNT = 10;
 const TYPE = ['place', 'flat', 'house', 'bungalow'];
 const TIME = ['12:00', '13:00', '14:00'];
 const FEATURES = ['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'conditioner'];
@@ -54,6 +53,6 @@ const createAdvertisement = () => {
     location: location,
   }
 }
-const advertisementsList = new Array(OBJECTS_AMOUNT).fill(null).map(() => createAdvertisement());
+const advertisementsList = (count) => new Array(count).fill(null).map(() => createAdvertisement());
 
 export { OFFER_TYPE, advertisementsList }
